@@ -39,13 +39,13 @@ export default function EnganosAseguradoras() {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
-        className="h-screen flex flex-col justify-center items-center bg-[#000d22] text-center p-8"
+        className=" flex flex-col justify-center items-center bg-[#000d22] text-center p-8"
       >
         <motion.h2
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-5xl font-bold text-white animate-pulse"
+          className="text-5xl font-bold text-white animate-pulse my-12"
           whileHover={{ scale: 1.05, textShadow: "0px 0px 8px rgba(255,255,255,0.8)" }}
         >
           ¡No dejes que te engañen!
@@ -61,7 +61,7 @@ export default function EnganosAseguradoras() {
       </motion.div>
 
       {/* Sección de conexión antes de las tarjetas */}
-      <div className="bg-[#000d22] py-12 px-8 text-center">
+      <div className="bg-[#000d22] py-8 px-8 text-center"> {/* Se redujo el padding */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -81,14 +81,14 @@ export default function EnganosAseguradoras() {
             hidden: { opacity: 0, y: 50 },
             visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.2 } },
           }}
-          className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8"
+          className="grid grid-cols-1 gap-y-8 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8"  
         >
           {incentives.map((incentive, index) => (
             <motion.div
               key={index}
               variants={{
-                hidden: { opacity: 0, y: 50 },
-                visible: { opacity: 1, y: 0 },
+                hidden: { opacity: 0, y: 50, scale: 0.8 }, // Inicia pequeña
+                visible: { opacity: 1, y: 0, scale: 1 }, // Se agranda
               }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               className="bg-[#222f44] p-6 rounded-xl shadow-lg text-center"

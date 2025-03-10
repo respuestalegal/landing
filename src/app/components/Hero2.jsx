@@ -34,7 +34,7 @@ export default function HeroAbogado() {
             Somos un estudio jurídico especializado en accidentes de tránsito, accidentes laborales y reclamos contra aseguradoras.
           </h1>
           <a
-            href="#contacto"
+            href="#contact-section"
             className="mt-8 inline-block rounded-md bg-white px-6 py-3 text-lg font-semibold text-[#000d22] shadow-lg opacity-0 hover:bg-white focus:outline-none focus:ring-2 focus:ring-white"
           >
             Consulta Gratis

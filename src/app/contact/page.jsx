@@ -8,6 +8,7 @@ import { FadeIn } from '../components/FadeIn'
 import { Offices } from '../components/Offices'
 import { PageIntro } from '../components/PageIntro'
 import { SocialMedia } from '../components/SocialMedia'
+import ContactForm from '../components/ContactForm'
 
 function TextInput({ label, ...props }) {
   let id = useId()
@@ -44,42 +45,42 @@ function RadioInput({ label, ...props }) {
   )
 }
 
-function ContactForm() {
-  return (
-    <FadeIn className="lg:order-last">
-      <form>
-        <h2 className="font-display text-base font-semibold text-neutral-950">
-          Consultas
-        </h2>
-        <div className="isolate mt-6 -space-y-px rounded-2xl bg-white/50">
-          <TextInput label="Name" name="name" autoComplete="Nombre y apellido" />
-          <TextInput
-            label="Email"
-            type="email"
-            name="email"
-            autoComplete="email"
-          />
-          <TextInput label="Teléfono" type="tel" name="phone" autoComplete="tel" />
-          <TextInput label="Consulta" name="message" />
-          {/* <div className="border border-neutral-300 px-6 py-8 first:rounded-t-2xl last:rounded-b-2xl">
-            <fieldset>
-              <legend className="text-base/6 text-neutral-500">Budget</legend>
-              <div className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2">
-                <RadioInput label="$25K – $50K" name="budget" value="25" />
-                <RadioInput label="$50K – $100K" name="budget" value="50" />
-                <RadioInput label="$100K – $150K" name="budget" value="100" />
-                <RadioInput label="More than $150K" name="budget" value="150" />
-              </div>
-            </fieldset>
-          </div> */}
-        </div>
-        <Button type="submit" className="mt-10">
-          Enviar
-        </Button>
-      </form>
-    </FadeIn>
-  )
-}
+// function ContactForm() {
+//   return (
+//     <FadeIn className="lg:order-last">
+//       <form>
+//         <h2 className="font-display text-base font-semibold text-neutral-950">
+//           Consultas
+//         </h2>
+//         <div className="isolate mt-6 -space-y-px rounded-2xl bg-white/50">
+//           <TextInput label="Name" name="name" autoComplete="Nombre y apellido" />
+//           <TextInput
+//             label="Email"
+//             type="email"
+//             name="email"
+//             autoComplete="email"
+//           />
+//           <TextInput label="Teléfono" type="tel" name="phone" autoComplete="tel" />
+//           <TextInput label="Consulta" name="message" />
+//           {/* <div className="border border-neutral-300 px-6 py-8 first:rounded-t-2xl last:rounded-b-2xl">
+//             <fieldset>
+//               <legend className="text-base/6 text-neutral-500">Budget</legend>
+//               <div className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2">
+//                 <RadioInput label="$25K – $50K" name="budget" value="25" />
+//                 <RadioInput label="$50K – $100K" name="budget" value="50" />
+//                 <RadioInput label="$100K – $150K" name="budget" value="100" />
+//                 <RadioInput label="More than $150K" name="budget" value="150" />
+//               </div>
+//             </fieldset>
+//           </div> */}
+//         </div>
+//         <Button type="submit" className="mt-10">
+//           Enviar
+//         </Button>
+//       </form>
+//     </FadeIn>
+//   )
+// }
 
 function ContactDetails() {
   return (
@@ -144,8 +145,11 @@ export default function Contact() {
 
       <Container className=" sm:mt-20 ">
         <div className="grid grid-cols-1 gap-x-8 gap-y-24 lg:grid-cols-2">
-          <ContactForm />
           <ContactDetails />
+          <div>
+            <h2 className="font-display text-base font-semibold text-neutral-950">Consultas</h2>
+            <ContactForm />
+          </div>
         </div>
       </Container>
     </>

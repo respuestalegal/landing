@@ -1,10 +1,9 @@
 import * as motion from "motion/react-client";
 import Image from "next/image";
-import Lawyer1 from "../../images/lawyer_1.png"
-import Lawyer2 from "../../images/lawyer_2.png"
-import Lawyer3 from "../../images/lawyer_3.png"
-import Lawyer4 from "../../images/lawyer_4.png"
-
+import Lawyer1 from "../../images/lawyer_1.png";
+import Lawyer2 from "../../images/lawyer_2.png";
+import Lawyer3 from "../../images/lawyer_3.png";
+import Lawyer4 from "../../images/lawyer_4.png";
 
 const items = [
   {
@@ -53,14 +52,16 @@ export default function ScrollingTextImages() {
             <p className="mt-4 text-lg text-gray-700">{item.description}</p>
           </motion.div>
           <motion.div
-            className="w-full md:w-1/2"
+            className="w-full md:w-1/2 h-full"
             initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Image src={item.img} alt={item.title}
-              className="w-full h-auto rounded-xl shadow-lg"/>
-
+            <Image
+              src={item.img}
+              alt={item.title}
+              className="w-full h-full object-cover rounded-xl shadow-lg"
+            />
           </motion.div>
         </section>
       ))}
