@@ -4,12 +4,14 @@ import HeroAbogado from "./Hero2"
 import InsuranceScams from "./InsuranceScams"
 import Services from "./Services"
 import ContactForm from "./ContactForm"
+import OurServices from "./OurServices"
 import { PageIntro } from "./PageIntro"
 
 export default function Home() {
   return (
     <div className="bg-gray-50">
       <HeroAbogado />
+      <OurServices></OurServices>
       <div className="my-4">
         <ScrollingTextImages />
       </div>

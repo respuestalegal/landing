@@ -11,18 +11,23 @@ const poppins = Poppins({
 
 export const metadata = {
   title: 'Respuesta Legal | Estudio Jurídico',
-  description: "            Somos un estudio jurídico especializado en accidentes de tránsito, accidentes laborales y reclamos contra aseguradoras.",
+  description: "Somos un estudio jurídico especializado en accidentes de tránsito, accidentes laborales y reclamos contra aseguradoras.",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="es">
       <head>
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" />
-        {/* Metadata (opcional, si usas metadata en las páginas) */}
+        
+        {/* Metadata */}
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
+
+        {/* Google Search Console Verification */}
+        <meta name="google-site-verification" content="Liglfo5J6LOUzJKHxDoViOb9JBkYhZhYGZLAOVX0MMI" />
+
         {/* Font Awesome */}
         <link
           rel="stylesheet"
@@ -37,15 +42,16 @@ export default function RootLayout({ children }) {
         {/* WhatsApp Floating Icon with message */}
         <div className="whatsapp-container fixed bottom-6 right-6 flex items-center gap-2 bg-green-500 text-white rounded-full p-4 shadow-lg hover:bg-green-600 transition-all">
           <a
-            href="https://wa.me/5491124909167?text=Hola,%20necesito%20asesoramiento%20jur%C3%ADdico" // Reemplaza con el número de teléfono
+            href="https://wa.me/5491124909167?text=Hola,%20necesito%20asesoramiento%20jur%C3%ADdico"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-4xl" // Ícono más grande
+            className="text-4xl"
           >
             <i className="fab fa-whatsapp"></i>
           </a>
         </div>
-        {/* <Footer></Footer> */}
+
+        <Footer />
       </body>
     </html>
   );

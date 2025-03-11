@@ -3,22 +3,23 @@
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
+import { FaMoneyBillWave, FaFileSignature, FaPhone } from "react-icons/fa";
 
 const incentives = [
   {
     name: "Montos bajos por indemnización",
     description: "Las aseguradoras suelen ofrecer montos menores a los que realmente te corresponden.",
-    icon: "💰",
+    icon: <FaMoneyBillWave className="text-white text-4xl" />,
   },
   {
     name: "Presiones para firmar acuerdos rápidos",
     description: "Intentan que firmes rápidamente para evitar que reclames lo que realmente mereces.",
-    icon: "✍️",
+    icon: <FaFileSignature className="text-white text-4xl" />,
   },
   {
     name: "Ofertas engañosas",
     description: "Te llaman con un acuerdo 'superador' que en realidad solo les beneficia a ellos.",
-    icon: "📞",
+    icon: <FaPhone className="text-white text-4xl" />,
   },
 ];
 
@@ -61,7 +62,7 @@ export default function EnganosAseguradoras() {
       </motion.div>
 
       {/* Sección de conexión antes de las tarjetas */}
-      <div className="bg-[#000d22] py-8 px-8 text-center"> {/* Se redujo el padding */}
+      <div className="bg-[#000d22] py-8 px-8 text-center">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -87,13 +88,13 @@ export default function EnganosAseguradoras() {
             <motion.div
               key={index}
               variants={{
-                hidden: { opacity: 0, y: 50, scale: 0.8 }, // Inicia pequeña
-                visible: { opacity: 1, y: 0, scale: 1 }, // Se agranda
+                hidden: { opacity: 0, y: 50, scale: 0.8 },
+                visible: { opacity: 1, y: 0, scale: 1 },
               }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="bg-[#222f44] p-6 rounded-xl shadow-lg text-center"
+              className="bg-[#222f44] p-6 rounded-xl shadow-lg text-center flex flex-col items-center justify-center"
             >
-              <div className="text-4xl">{incentive.icon}</div>
+              <div className="text-center">{incentive.icon}</div>
               <h3 className="mt-4 text-lg font-medium text-white">{incentive.name}</h3>
               <p className="mt-2 text-sm text-white">{incentive.description}</p>
             </motion.div>

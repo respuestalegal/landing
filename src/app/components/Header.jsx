@@ -1,79 +1,77 @@
 'use client'
 
 import { useState } from 'react'
-import { Dialog, DialogPanel, Popover, PopoverButton, PopoverGroup, PopoverPanel } from '@headlessui/react'
-import {
-    ArrowPathIcon,
-    Bars3Icon,
-    ChartPieIcon,
-    CursorArrowRaysIcon,
-    FingerPrintIcon,
-    SquaresPlusIcon,
-    XMarkIcon,
-} from '@heroicons/react/24/outline'
-import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
+import { Dialog } from '@headlessui/react'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 import Logo from "../../images/logo_respuesta_legal.png"
 import Link from 'next/link'
-
-const products = [
-    { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
-    { name: 'Engagement', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
-    { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
-    { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
-    { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
-]
-const callsToAction = [
-    { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
-    { name: 'Contact sales', href: '#', icon: PhoneIcon },
-]
-const company = [
-    { name: 'About us', href: '#', description: 'Learn more about our company values and mission to empower others' },
-    { name: 'Careers', href: '#', description: 'Looking for you next career opportunity? See all of our open positions' },
-    {
-        name: 'Support',
-        href: '#',
-        description: 'Get in touch with our dedicated support team or reach out on our community forums',
-    },
-    { name: 'Blog', href: '#', description: 'Read our latest announcements and get perspectives from our team' },
-]
 
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
     return (
-<header className="fixed top-0 left-0 w-full z-50 bg-[#000d22]  shadow-md transition">
-    <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
-        <div className="flex lg:flex-1">
-            <Link href="/" className="-m-1.5 p-1.5 flex gap-2">
-                <Image
-                    src={Logo}
-                    alt="Respuesta Legal Estudio Jurídico Accidentes de Tránsito Accidentes Laborales"
-                    className="h-12 w-auto"
-                />
-                <h2 className='bold'>Respuesta Legal <br /> <span className='italic text-sm'>Estudio Jurídico</span></h2>
-            </Link>
-        </div>
-        <div className="flex lg:hidden">
-            <button
-                type="button"
-                onClick={() => setMobileMenuOpen(true)}
-                className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-            >
-                <span className="sr-only">Open main menu</span>
-                <Bars3Icon aria-hidden="true" className="size-6" />
-            </button>
-        </div>
-        <PopoverGroup className="hidden lg:flex lg:gap-x-12">
-            <a href="#" className="text-sm/6 font-semibold text-white">Nosotros</a>
-            <a href="#" className="text-sm/6 font-semibold text-white">Accidentes de tránsito</a>
-            <a href="#" className="text-sm/6 font-semibold text-white">Accidentes de trabajo</a>
-            <a href="#" className="text-sm/6 font-semibold text-white">Blog</a>
-            <Link className="text-sm/6 font-semibold text-white" href="/contact">Contactanos</Link>
-            {/* <a href="#" className="text-sm/6 font-semibold text-white">Contactanos</a> */}
-        </PopoverGroup>
-    </nav>
-</header>
+        <header className="fixed top-0 left-0 w-full z-50 bg-[#000d22] shadow-md transition">
+            <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
+                <div className="flex lg:flex-1">
+                    <Link href="/" className="-m-1.5 p-1.5 flex gap-2">
+                        <Image
+                            src={Logo}
+                            alt="Respuesta Legal Estudio Jurídico Accidentes de Tránsito Accidentes Laborales"
+                            className="h-12 w-auto"
+                        />
+                        <h2 className='bold text-white'>Respuesta Legal <br /> <span className='italic text-sm'>Estudio Jurídico</span></h2>
+                    </Link>
+                </div>
+                <div className="flex lg:hidden">
+                    <button
+                        type="button"
+                        onClick={() => setMobileMenuOpen(true)}
+                        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
+                    >
+                        <span className="sr-only">Abrir menú</span>
+                        <Bars3Icon aria-hidden="true" className="size-6" />
+                    </button>
+                </div>
+                <div className="hidden lg:flex lg:gap-x-12">
+                    <Link href="#" className="text-sm font-semibold text-white">Nosotros</Link>
+                    <Link href="#" className="text-sm font-semibold text-white">Accidentes de tránsito</Link>
+                    <Link href="#" className="text-sm font-semibold text-white">Accidentes de trabajo</Link>
+                    <Link href="#" className="text-sm font-semibold text-white">Blog</Link>
+                    <Link href="/contact" className="text-sm font-semibold text-white">Contactanos</Link>
+                </div>
+            </nav>
 
+            {/* Menú móvil */}
+            <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
+                <div className="fixed inset-0 z-50 bg-black bg-opacity-50" />
+                <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full max-w-xs bg-[#000d22] p-6 shadow-lg">
+                    <div className="flex items-center justify-between">
+                        <Link href="/" className="-m-1.5 p-1.5 flex gap-2">
+                            <Image
+                                src={Logo}
+                                alt="Respuesta Legal"
+                                className="h-10 w-auto"
+                            />
+                        </Link>
+                        <button
+                            type="button"
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="-m-2.5 p-2.5 text-white"
+                        >
+                            <span className="sr-only">Cerrar menú</span>
+                            <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                        </button>
+                    </div>
+                    <div className="mt-6 flex flex-col gap-y-4">
+                        <Link href="#" className="text-white text-lg font-semibold" onClick={() => setMobileMenuOpen(false)}>Nosotros</Link>
+                        {/* <Link href="#" className="text-white text-lg font-semibold" onClick={() => setMobileMenuOpen(false)}>Accidentes de tránsito</Link>
+                        <Link href="#" className="text-white text-lg font-semibold" onClick={() => setMobileMenuOpen(false)}>Accidentes de trabajo</Link>
+                        <Link href="#" className="text-white text-lg font-semibold" onClick={() => setMobileMenuOpen(false)}>Blog</Link> */}
+                        <Link href="/contact" className="text-white text-lg font-semibold" onClick={() => setMobileMenuOpen(false)}>Contactanos</Link>
+                    </div>
+                </Dialog.Panel>
+            </Dialog>
+        </header>
     )
 }

@@ -1,5 +1,4 @@
 import * as motion from "motion/react-client";
-import Image from "next/image";
 import Lawyer1 from "../../images/lawyer_1.png";
 import Lawyer2 from "../../images/lawyer_2.png";
 import Lawyer3 from "../../images/lawyer_3.png";
@@ -34,36 +33,49 @@ const items = [
 
 export default function ScrollingTextImages() {
   return (
-    <div className="w-full">
+    <div className="w-full flex flex-col gap-10 px-6 md:px-16 lg:px-24 py-10 bg-white/50">
+      <h2 className="text-4xl font-bold text-center text-gray-900 mb-10">
+        Cómo trabajamos
+      </h2>
       {items.map((item, index) => (
-        <section
+        <div
           key={index}
-          className={`flex flex-col md:flex-row items-center justify-center h-screen px-6 md:px-16 lg:px-24 gap-10 ${
-            index % 2 === 0 ? "md:flex-row-reverse" : ""
-          }`}
+          className="grid grid-cols-1 md:grid-cols-2 items-center gap-10"
         >
-          <motion.div
-            className="w-full md:w-1/2"
-            initial={{ opacity: 0, x: index % 2 === 0 ? 100 : -100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl font-bold text-gray-900">{item.title}</h2>
-            <p className="mt-4 text-lg text-gray-700">{item.description}</p>
-          </motion.div>
-          <motion.div
-            className="w-full md:w-1/2 h-full"
-            initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <Image
-              src={item.img}
-              alt={item.title}
-              className="w-full h-full object-cover rounded-xl shadow-lg"
-            />
-          </motion.div>
-        </section>
+          {index % 2 === 0 ? (
+            <>
+              <div
+                className="w-[50vw] h-[50vw] max-w-md rounded-xl shadow-lg bg-lawyer"
+                style={{ backgroundImage: `url(${item.img.src})` }}
+              />
+              <motion.div
+                className="w-full"
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                <h2 className="text-3xl font-bold text-gray-900">{item.title}</h2>
+                <p className="mt-4 text-lg text-gray-700">{item.description}</p>
+              </motion.div>
+            </>
+          ) : (
+            <>
+              <motion.div
+                className="w-full"
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                <h2 className="text-3xl font-bold text-gray-900">{item.title}</h2>
+                <p className="mt-4 text-lg text-gray-700">{item.description}</p>
+              </motion.div>
+              <div
+                className="w-[50vw] h-[50vw] max-w-md rounded-xl shadow-lg bg-lawyer"
+                style={{ backgroundImage: `url(${item.img.src})` }}
+              />
+            </>
+          )}
+        </div>
       ))}
     </div>
   );
